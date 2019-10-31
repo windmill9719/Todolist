@@ -1,32 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <div class="wrapper">
+        <div class="title">Todolist</div>
+      </div>
     </div>
-    <router-view/>
+    <MainArea></MainArea>
   </div>
 </template>
 
+<script>
+  import MainArea from "./components/project/MainArea"
+  export default {
+    name: 'app',
+    components:{
+      MainArea
+    }
+  }
+
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  @import "assets/css/base.css";
+  .header{
+    background-color: #e83629;
+    height: 60px;
+    width: 100%;
+  }
+  .title{
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+  }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

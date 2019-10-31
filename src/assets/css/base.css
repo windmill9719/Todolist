@@ -1,0 +1,11 @@
+@import "./normalize.css";
+.main-wrapper {
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.isDone {
+    color: #bbb;
+    text-decoration: line-through;
+}
