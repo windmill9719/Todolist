@@ -5,7 +5,7 @@
     margin: 0 auto;
 }
 
-.isDone {
+.done .item-text {
     color: #bbb;
     text-decoration: line-through;
 }

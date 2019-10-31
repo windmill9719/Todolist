@@ -11,7 +11,7 @@
     name: "ItemBar",
     methods:{
       onDone(){
-        this.$emit(onItemDone)
+        this.$emit('onItemDone')
       }
     }
   }

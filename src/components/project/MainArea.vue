@@ -7,7 +7,9 @@
           <button @click="onAdd">add</button>
           <button>more</button>
         </div>
-        <ItemBar v-for="(todo, index) in todos" :key="index">{{todo.text}}</ItemBar>
+        <ItemBar v-for="(todo, index) in todos"
+                 :key="index"
+                 @onItemDone="itemDone(index)" :class="{done: todo.isDone}">{{todo.text}}</ItemBar>
       </div>
     </div>
   </div>
@@ -47,7 +49,8 @@
         })
         this.input = ''
       },
-      onSubmit(){
+      itemDone(index){
+        this.todos[index].isDone = ! this.todos[index].isDone;
 
       }
     }
@@ -59,4 +62,5 @@
     width: 80%;
     height: 40px;
   }
+
 </style>
