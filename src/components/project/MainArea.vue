@@ -2,7 +2,7 @@
   <div class="main-area">
     <div class="main-wrapper">
       <div class="content item-bar">
-        <input type="text" v-model="input" @submit.prevent>
+        <input type="text" v-model.trim="input" @keydown.enter="onAdd" placeholder="'干点啥呢'" >
         <button @click="onAdd">add</button>
         <button>more</button>
       </div>
@@ -43,11 +43,13 @@
     },
     methods:{
       onAdd(){
+        if(this.input){
         this.todos.push({
             text: this.input,
             isDone: false
-        })
+        });
         this.input = ''
+        }
       },
       onDone(index){
         this.todos[index].isDone = ! this.todos[index].isDone;
@@ -62,18 +64,49 @@
 <style scoped>
   .content input{
     /*width: 80%;*/
-    height: 30px;
+    height: 40px;
     border: 0;
     outline: none;
+    background-color: inherit;
+    font-size: 25px;
+  }
+  .item-bar .item-text {
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .content input,.item-bar .item-text{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .content input::placeholder{
+    text-align: center;
   }
 
 
   .item-bar{
     display: flex;
-    height: 50px;
-    border: 2px solid #eee;
-    margin-bottom: 2px;
+    height: 60px;
+    border-right: 2px solid;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    border-color: #999;
+    border-radius: 2px;
     align-items: center;
+  }
+
+  .item-bar:first-child{
+    background-color: #eee;
+    border-top: 2px solid #999;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .item-bar:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .item-bar input, .item-bar .item-text{
@@ -82,15 +115,14 @@
 
   .item-bar button {
     flex: 1;
+    height: 30px;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
     margin-right: 15px;
+    background-color: indianred;
+    color: #ffffff;
   }
 
 
-  .item-bar .item-text {
-    display: inline-block;
-    text-align: center;
-    width: 70%;
-    font-size: 30px;
-    list-style: none;
-  }
+
 </style>
