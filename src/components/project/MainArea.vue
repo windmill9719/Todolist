@@ -2,7 +2,7 @@
   <div class="main-area">
     <div class="main-wrapper">
       <div class="content item-bar">
-        <input type="text" v-model.trim="input" @keydown.enter="onAdd" placeholder="'干点啥呢'" >
+        <input type="text" v-model.trim="input" @keydown.enter="onAdd" placeholder="'干点啥呢'" autofocus>
         <button @click="onAdd">add</button>
         <button>more</button>
       </div>
@@ -98,6 +98,7 @@
   }
 
   .item-bar:first-child{
+    height: 70px;
     background-color: #eee;
     border-top: 2px solid #999;
     border-top-left-radius: 10px;
